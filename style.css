@@ -35,17 +35,30 @@ body {
         max-height: 300px;
     }
 }
-.grid-container {
-    background-color: white;
-    width: 400px;
-    height: 400px;
+.container {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-size {
+    width: 100px;
+    height: 50px;
+}
+.btn-color {
+    width: 100px;
+    height: 50px;
+}
+#grid-container {
+    display: flex;
+    background-color: white;
     flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
+    box-shadow: 10px 9px 5px 0px rgba(0,0,0,0.75);
 }
 .boxes-container {
-    border: 1px solid black;
-    background-color: white;
+    border: 1px solid #9CA3AF;
+    box-sizing: border-box;
+
 }
