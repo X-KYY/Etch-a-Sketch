@@ -40,25 +40,34 @@ body {
     flex-direction: column;
     gap: 10px;
 }
-.btn-size {
-    width: 100px;
-    height: 50px;
+.button-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1px;
 }
-.btn-color {
-    width: 100px;
-    height: 50px;
+.btn {
+    width: 50px;
+    height: 30px;
 }
 #grid-container {
     display: flex;
     background-color: white;
     flex-wrap: wrap;
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     box-sizing: border-box;
     box-shadow: 10px 9px 5px 0px rgba(0,0,0,0.75);
 }
 .boxes-container {
-    border: 1px solid #9CA3AF;
+    opacity: 0;
     box-sizing: border-box;
+}
 
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 20;
 }
