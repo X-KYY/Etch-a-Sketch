@@ -5,9 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Etch a Sketch</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Double:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=ink_eraser" />
     </head>
     <body>
         <div class="title-container">
@@ -18,8 +20,8 @@
         <!-- Grid container -->
          <div class="container">
             <div class="button-container">
-                <button class="btn-size">Change Size</button>
-                <button class="btn-color">Change Color</button>
+                <button class="btn" data-action="erase"><span data-action="erase" class="material-symbols-outlined">ink_eraser</span></button>
+                <button class="btn" data-action="resize"><span data-action="resize" class="material-icons">crop</span></button>
             </div>
            <div id="grid-container">
             <!-- The boxes will be here -->
