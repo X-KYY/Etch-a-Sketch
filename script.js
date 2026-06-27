@@ -1,12 +1,13 @@
 let gridContainer = document.querySelector('#grid-container');
 let buttonContainer = document.querySelector('.button-container');
 let boxesContainer;
-const GRIDSCALE = parseFloat(getComputedStyle(gridContainer).width);
-let SIZE = 16;
+const gridScale = parseFloat(getComputedStyle(gridContainer).width);
+let size = 16;
+let colorState = 'black';
 
 
     function createGrid(size) {
-    let boxSize = GRIDSCALE / size;
+    let boxSize = gridScale / size;
 
     for (let i = 1;i <= size * size;i++) {;
         let box = document.createElement('div');
@@ -20,18 +21,32 @@ let SIZE = 16;
 
 // Change color to black every singgle mouseover
 function changeColor() {
-    let OPACITY = 10;
+    const OPACITY = 10;
     document.querySelectorAll('.boxes-container').forEach(box => {
+        // For computer
         box.addEventListener('mouseover', (event) => {
-          event.target.style.backgroundColor = 'black';
-          let objOpacity = getComputedStyle(event.target).opacity * 100;
-          event.target.style.opacity = `${OPACITY + objOpacity}%`
+            event.target.style.backgroundColor = colorState;
+            let objOpacity = getComputedStyle(event.target).opacity * 100;
+            if (colorState == 'black') {
+                event.target.style.opacity = `${OPACITY + objOpacity}%`
+            }  else {
+                event.target.style.opacity = '0'
+            }
+    })
+    // For mobile
+        box.addEventListener('click', (event) => {
+            event.target.style.backgroundColor = colorState;
+            let objOpacity = getComputedStyle(event.target).opacity * 100;
+            if (colorState == 'black') {
+                event.target.style.opacity = `${OPACITY + objOpacity}%`
+            }  else {
+                event.target.style.opacity = '0'
+            }
     })
 })
 }
 
-// Remove color
-function eraseColor() {
+function resetColor() {
     document.querySelectorAll('.boxes-container').forEach((box) => {
         box.style.backgroundColor = 'white';
         box.style.opacity = 0;
@@ -40,29 +55,41 @@ function eraseColor() {
 
 // Resize grid
 function setGridSize() {
-    SIZE = parseFloat(prompt('how many number do you want to set'));
-    if (SIZE > 100) {
+    size = parseFloat(prompt('how many number do you want to set'));
+    if (size > 100) {
         return alert('Are you kidding me?')
-    } else if (isNaN(SIZE)) {
+    } else if (isNaN(size)) {
         return alert('You are not input a number')
     }
     gridContainer.textContent = '';
-    createGrid(SIZE);
+    createGrid(size);
     changeColor();
     
 }
 
+// Cases for button
 buttonContainer.addEventListener('click', (event) => {
+    let point = event.target.closest('BUTTON');
 
-    switch(event.target.dataset.action) {
-        case 'erase':
-            eraseColor();
+    switch(point.dataset.action) {
+        case 'reset':
+            resetColor();
             break;
 
         case 'resize':
             setGridSize();
             break;
+
+        case 'erase': 
+            colorState = 'white';
+            break;
+
+        case 'pen': 
+            if (colorState == 'black') {
+                alert('already black')
+            }
+            colorState = 'black';
     }
 })
-createGrid(SIZE);
+createGrid(size);
 changeColor();
