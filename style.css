@@ -42,12 +42,12 @@ body {
 }
 .button-container {
     display: flex;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
-    gap: 1px;
+    gap: 5px;
 }
 .btn {
-    width: 50px;
+    width: 70px;
     height: 30px;
 }
 #grid-container {
