@@ -81,13 +81,14 @@ buttonContainer.addEventListener('click', (event) => {
             break;
 
         case 'erase': 
+            if (colorState == 'white') {
+                alert('You already use eraser')}         
             colorState = 'white';
             break;
 
         case 'pen': 
             if (colorState == 'black') {
-                alert('already black')
-            }
+                alert('You already use pen')}
             colorState = 'black';
     }
 })
